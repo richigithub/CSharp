@@ -1,0 +1,67 @@
+﻿@model WebAplicationDT.Models.Persona
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apelidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefonos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefonos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Perfil.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Perfil.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zona.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zona.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

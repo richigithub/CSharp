@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Base_DTModelStoreContainer" CdmEntityContainer="Base_DTEntities">
+    <EntitySetMapping Name="Empaques">
+      <EntityTypeMapping TypeName="Base_DTModel.Empaque">
+        <MappingFragment StoreEntitySet="Empaque">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EmpaqueId" ColumnName="EmpaqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="Base_DTModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+          <ScalarProperty Name="Cancelada" ColumnName="Cancelada" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Abonos" ColumnName="Abonos" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Productos" ColumnName="Productos" />
+          <ScalarProperty Name="FacturaId" ColumnName="FacturaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfils">
+      <EntityTypeMapping TypeName="Base_DTModel.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="PermisosId" ColumnName="PermisosId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PerfilId" ColumnName="PerfilId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="Base_DTModel.Permiso">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="SubModulo" ColumnName="SubModulo" />
+          <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+          <ScalarProperty Name="PermisosId" ColumnName="PermisosId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personas">
+      <EntityTypeMapping TypeName="Base_DTModel.Persona">
+        <MappingFragment StoreEntitySet="Personas">
+          <ScalarProperty Name="ZonaId" ColumnName="ZonaId" />
+          <ScalarProperty Name="PerfilId" ColumnName="PerfilId" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+          <ScalarProperty Name="Apelidos" ColumnName="Apelidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productoes">
+      <EntityTypeMapping TypeName="Base_DTModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="TamanioId" ColumnName="TamanioId" />
+          <ScalarProperty Name="EmpaqueId" ColumnName="EmpaqueId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tamanios">
+      <EntityTypeMapping TypeName="Base_DTModel.Tamanio">
+        <MappingFragment StoreEntitySet="Tamanio">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="TamanioId" ColumnName="TamanioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="Base_DTModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="PersonaId" ColumnName="PersonaId" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zonas">
+      <EntityTypeMapping TypeName="Base_DTModel.Zona">
+        <MappingFragment StoreEntitySet="Zona">
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ZonaId" ColumnName="ZonaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

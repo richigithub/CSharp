@@ -1,0 +1,83 @@
+﻿@model WebAplicationDT.Models.Factura
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Factura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Productos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Productos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abonos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abonos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saldo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cancelada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cancelada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Persona.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persona.Nombres)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FacturaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

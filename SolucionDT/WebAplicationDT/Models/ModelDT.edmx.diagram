@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ded340ee42fd424d88c8e1edbd250712" Name="Diagram1">
+        <EntityTypeShape EntityType="Base_DTModel.Empaque" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="Base_DTModel.Factura" Width="1.5" PointX="7.5" PointY="1.75" />
+        <EntityTypeShape EntityType="Base_DTModel.Perfil" Width="1.5" PointX="3" PointY="3.625" />
+        <EntityTypeShape EntityType="Base_DTModel.Permiso" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Base_DTModel.Persona" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="Base_DTModel.Producto" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="Base_DTModel.Tamanio" Width="1.5" PointX="0.75" PointY="10.875" />
+        <EntityTypeShape EntityType="Base_DTModel.Usuario" Width="1.5" PointX="7.5" PointY="5.375" />
+        <EntityTypeShape EntityType="Base_DTModel.Zona" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="Base_DTModel.Empaque_Producto_fk" />
+        <AssociationConnector Association="Base_DTModel.Personas_Factura_fk" />
+        <AssociationConnector Association="Base_DTModel.Perfil_Personas_fk" />
+        <AssociationConnector Association="Base_DTModel.Permisos_Perfil_fk" />
+        <AssociationConnector Association="Base_DTModel.Personas_Usuario_fk" />
+        <AssociationConnector Association="Base_DTModel.Zona_Personas_fk" />
+        <AssociationConnector Association="Base_DTModel.Tamanio_Producto_fk" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

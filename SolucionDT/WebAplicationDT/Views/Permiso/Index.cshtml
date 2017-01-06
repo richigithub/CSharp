@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebAplicationDT.Models.Permiso>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Modulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubModulo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubModulo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PermisosId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PermisosId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PermisosId })
+        </td>
+    </tr>
+}
+
+</table>

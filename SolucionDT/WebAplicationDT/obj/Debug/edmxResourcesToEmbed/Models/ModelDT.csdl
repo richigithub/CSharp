@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Base_DTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Base_DTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Empaques" EntityType="Base_DTModel.Empaque" />
+    <EntitySet Name="Facturas" EntityType="Base_DTModel.Factura" />
+    <EntitySet Name="Perfils" EntityType="Base_DTModel.Perfil" />
+    <EntitySet Name="Permisos" EntityType="Base_DTModel.Permiso" />
+    <EntitySet Name="Personas" EntityType="Base_DTModel.Persona" />
+    <EntitySet Name="Productoes" EntityType="Base_DTModel.Producto" />
+    <EntitySet Name="Tamanios" EntityType="Base_DTModel.Tamanio" />
+    <EntitySet Name="Usuarios" EntityType="Base_DTModel.Usuario" />
+    <EntitySet Name="Zonas" EntityType="Base_DTModel.Zona" />
+    <AssociationSet Name="Empaque_Producto_fk" Association="Base_DTModel.Empaque_Producto_fk">
+      <End Role="Empaque" EntitySet="Empaques" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+    <AssociationSet Name="Personas_Factura_fk" Association="Base_DTModel.Personas_Factura_fk">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Factura" EntitySet="Facturas" />
+    </AssociationSet>
+    <AssociationSet Name="Perfil_Personas_fk" Association="Base_DTModel.Perfil_Personas_fk">
+      <End Role="Perfil" EntitySet="Perfils" />
+      <End Role="Persona" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="Permisos_Perfil_fk" Association="Base_DTModel.Permisos_Perfil_fk">
+      <End Role="Permiso" EntitySet="Permisos" />
+      <End Role="Perfil" EntitySet="Perfils" />
+    </AssociationSet>
+    <AssociationSet Name="Personas_Usuario_fk" Association="Base_DTModel.Personas_Usuario_fk">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="Zona_Personas_fk" Association="Base_DTModel.Zona_Personas_fk">
+      <End Role="Zona" EntitySet="Zonas" />
+      <End Role="Persona" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="Tamanio_Producto_fk" Association="Base_DTModel.Tamanio_Producto_fk">
+      <End Role="Tamanio" EntitySet="Tamanios" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Empaque">
+    <Key>
+      <PropertyRef Name="EmpaqueId" />
+    </Key>
+    <Property Name="EmpaqueId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Productoes" Relationship="Base_DTModel.Empaque_Producto_fk" FromRole="Empaque" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="FacturaId" />
+    </Key>
+    <Property Name="FacturaId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Productos" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Single" Nullable="false" />
+    <Property Name="PrecioUnitario" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Abonos" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Saldo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Cancelada" Type="Boolean" Nullable="false" />
+    <Property Name="PersonaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Persona" Relationship="Base_DTModel.Personas_Factura_fk" FromRole="Factura" ToRole="Persona" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="PerfilId" />
+    </Key>
+    <Property Name="PerfilId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PermisosId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Personas" Relationship="Base_DTModel.Perfil_Personas_fk" FromRole="Perfil" ToRole="Persona" />
+    <NavigationProperty Name="Permiso" Relationship="Base_DTModel.Permisos_Perfil_fk" FromRole="Perfil" ToRole="Permiso" />
+  </EntityType>
+  <EntityType Name="Permiso">
+    <Key>
+      <PropertyRef Name="PermisosId" />
+    </Key>
+    <Property Name="PermisosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Modulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubModulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Perfils" Relationship="Base_DTModel.Permisos_Perfil_fk" FromRole="Permiso" ToRole="Perfil" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="PersonaId" />
+    </Key>
+    <Property Name="PersonaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Apelidos" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Telefonos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PerfilId" Type="Int32" Nullable="false" />
+    <Property Name="ZonaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Facturas" Relationship="Base_DTModel.Personas_Factura_fk" FromRole="Persona" ToRole="Factura" />
+    <NavigationProperty Name="Perfil" Relationship="Base_DTModel.Perfil_Personas_fk" FromRole="Persona" ToRole="Perfil" />
+    <NavigationProperty Name="Usuarios" Relationship="Base_DTModel.Personas_Usuario_fk" FromRole="Persona" ToRole="Usuario" />
+    <NavigationProperty Name="Zona" Relationship="Base_DTModel.Zona_Personas_fk" FromRole="Persona" ToRole="Zona" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ProductoId" />
+    </Key>
+    <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EmpaqueId" Type="Int32" Nullable="false" />
+    <Property Name="TamanioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Empaque" Relationship="Base_DTModel.Empaque_Producto_fk" FromRole="Producto" ToRole="Empaque" />
+    <NavigationProperty Name="Tamanio" Relationship="Base_DTModel.Tamanio_Producto_fk" FromRole="Producto" ToRole="Tamanio" />
+  </EntityType>
+  <EntityType Name="Tamanio">
+    <Key>
+      <PropertyRef Name="TamanioId" />
+    </Key>
+    <Property Name="TamanioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Productoes" Relationship="Base_DTModel.Tamanio_Producto_fk" FromRole="Tamanio" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="PersonaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Persona" Relationship="Base_DTModel.Personas_Usuario_fk" FromRole="Usuario" ToRole="Persona" />
+  </EntityType>
+  <EntityType Name="Zona">
+    <Key>
+      <PropertyRef Name="ZonaId" />
+    </Key>
+    <Property Name="ZonaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Personas" Relationship="Base_DTModel.Zona_Personas_fk" FromRole="Zona" ToRole="Persona" />
+  </EntityType>
+  <Association Name="Empaque_Producto_fk">
+    <End Type="Base_DTModel.Empaque" Role="Empaque" Multiplicity="1" />
+    <End Type="Base_DTModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empaque">
+        <PropertyRef Name="EmpaqueId" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="EmpaqueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Personas_Factura_fk">
+    <End Type="Base_DTModel.Persona" Role="Persona" Multiplicity="1" />
+    <End Type="Base_DTModel.Factura" Role="Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="PersonaId" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="PersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Perfil_Personas_fk">
+    <End Type="Base_DTModel.Perfil" Role="Perfil" Multiplicity="1" />
+    <End Type="Base_DTModel.Persona" Role="Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="PerfilId" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="PerfilId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Permisos_Perfil_fk">
+    <End Type="Base_DTModel.Permiso" Role="Permiso" Multiplicity="1" />
+    <End Type="Base_DTModel.Perfil" Role="Perfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permiso">
+        <PropertyRef Name="PermisosId" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="PermisosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Personas_Usuario_fk">
+    <End Type="Base_DTModel.Persona" Role="Persona" Multiplicity="1" />
+    <End Type="Base_DTModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="PersonaId" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="PersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Zona_Personas_fk">
+    <End Type="Base_DTModel.Zona" Role="Zona" Multiplicity="1" />
+    <End Type="Base_DTModel.Persona" Role="Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zona">
+        <PropertyRef Name="ZonaId" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="ZonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Tamanio_Producto_fk">
+    <End Type="Base_DTModel.Tamanio" Role="Tamanio" Multiplicity="1" />
+    <End Type="Base_DTModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tamanio">
+        <PropertyRef Name="TamanioId" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TamanioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
